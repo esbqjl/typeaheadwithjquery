@@ -24,7 +24,7 @@ initDialog();}
   function clearDialog() {
       $('.dialog').empty();
   }
-  $('.autocomplete input').click(function() {
+  $('.typeahead input').click(function() {
       if (!alreadyFilled) {
           $('.dialog').addClass('open');
 
@@ -32,11 +32,11 @@ initDialog();}
 
   });
   $('body').on('click', '.dialog > div', function() {
-      $('.autocomplete input').val($(this).text()).focus();
-      $('.autocomplete .close').addClass('visible');
+      $('.typeahead input').val($(this).text()).focus();
+      $('.typeahead .close').addClass('visible');
       alreadyFilled = true;
   });
-  $('.autocomplete .close').click(function() {
+  $('.typeahead .close').click(function() {
       alreadyFilled = false;
       $('.dialog').addClass('open');
       $('.autocomplete input').val('').focus();
@@ -52,7 +52,7 @@ initDialog();}
           }
       }
   }
-  $('.autocomplete input').on('input', function() {
+  $('.typeahead input').on('input', function() {
       $('.dialog').addClass('open');
       alreadyFilled = false;
       match($(this).val());
